@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: get-message-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: get-message
+  template:
+    metadata:
+      labels:
+        app: get-message
+    spec:
+      containers:
+      - name: get-message
+        image: mohit2736/get-message:latest
+        ports:
+        - containerPort: 8081
